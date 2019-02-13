@@ -1,0 +1,38 @@
+<div class="row pt-5">
+  <div class="col-md-6 mx-auto">
+    <div class="card rounded-0">
+      <div class="card-header">
+        <h3 class="mb-0">
+          Register <i class="far fa-user-circle"></i>
+        </h3>
+      </div>
+      <div class="card-body">
+        <form class="form">
+
+            <div class="form-group">
+                <label>Name</label>
+                <input [(ngModel)]="registerUserDat.userName" name="userName" type="text" class="form-control rounded-0" required>
+              </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input [(ngModel)]="registerUserDat.emailId" name="emailId" type="text" class="form-control rounded-0" required>
+          </div>
+          <div class="form-group">
+            <label for="">password</label>
+            <input [(ngModel)]="registerUserDat.password" name="password" type="password" class="form-control rounded-0">
+          </div>
+          <div class="form-group">
+            <label for="">Confirm password</label>
+            <input [(ngModel)]="registerUserDat.cpassword" name="cpassword" type="password" class="form-control rounded-0">
+          </div>
+          <button mat-raised-button  (click)="Register()"  class="float-right" color="primary" matBadgeColor="accent">Register <i class="fas fa-sign-in-alt"></i> </button>
+         
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
