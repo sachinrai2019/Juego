@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   login(){
     console.log(this.registerUserData)
-    if(this.registerUserData.UserName==''){
+    if(this.registerUserData.emailId==''){
       toastr.error('Required fields cannot be empty')
     }else {
 

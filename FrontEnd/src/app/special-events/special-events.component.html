@@ -10,13 +10,48 @@
   
   
   
+  <div class="container">
+    <div class="row">
+    <div class="col-md-3">
+      <div class="card-counter primary">
+        <i class="fa fa-users"></i>
+        <span class="count-numbers">{{this.appchart1[0]}}</span>
+        <span class="count-name">Users</span>
+      </div>
+    </div>
 
+    <div class="col-md-3">
+      <div class="card-counter danger">
+        <i class="fa fa-ticket"></i>
+        <span class="count-numbers">{{this.appchart1[1]}}</span>
+        <span class="count-name">Items</span>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card-counter success">
+      
+        <i class="fa fa-cog" aria-hidden="true"></i>
+       <span class="count-numbers">{{this.appchart1[2]}}</span>
+        <span class="count-name">Orders</span>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card-counter info">
+        <i class="fa fa-users"></i>
+        <span class="count-numbers">{{this.appchart1[3]}}</span>
+        <span class="count-name">Delivered</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 
       <div class="row mt-5">
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div style="display: block;">
-          <canvas baseChart width="200" height="150"
+          <canvas baseChart width="100" height="40"
                       [datasets]="lineChartData"
                       [labels]="lineChartLabels"
                       [options]="lineChartOptions"
@@ -27,7 +62,7 @@
                       (chartClick)="chartClicked($event)"></canvas>
           </div>
         </div>
-        <div class="col-md-6" style="margin-bottom: 10px">
+        <!-- <div class="col-md-6" style="margin-bottom: 10px">
           <div class="mat-elevation-z8">
             <table mat-table [dataSource]="dataSource" matSort>
              
@@ -67,20 +102,19 @@
       matBadgeColor="accent">
     Toggle Data
   </button>
-        </div>
+        </div> -->
       </div>
 
       
     <div class="row mt-5">
-      <div class="col-md-4">
-          <app-chart [appchart1]='appchart1'></app-chart>
-    </div>
-    <div class="col-md-4">
-        <app-chart [appchart2]='appchart2'></app-chart>
+      <div class="col-md-12">
+          <app-chart [appchart1]='appchart1' ></app-chart>
       </div>
-      <div class="col-md-4">
-          <app-chart [appchart3]='appchart3'></app-chart>
-        </div>
+      
+ 
+  
+   
+    
         
   </div>
    

@@ -1,10 +1,12 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, OnDestroy} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import { EventService } from '../event.service'
 import { User } from './user'
 import { calander } from './calander'
 
-import * as toastr from "toastr";
+
+
+
 
 
 
@@ -15,7 +17,7 @@ import * as toastr from "toastr";
   templateUrl: './special-events.component.html',
   styleUrls: ['./special-events.component.css']
 })
-export class SpecialEventsComponent implements OnInit {
+export class SpecialEventsComponent implements OnInit,OnDestroy {
 
 
   public lineChartData:Array<any> = [
@@ -57,7 +59,10 @@ export class SpecialEventsComponent implements OnInit {
       pointHoverBorderColor: 'rgba(148,159,177,0.8)'
     }
   ];
+
+  
   public lineChartLegend:boolean = true;
+
   public lineChartType:string = 'line';
  
 
@@ -65,9 +70,9 @@ export class SpecialEventsComponent implements OnInit {
   public doughnutChartData:number[] = [350, 450, 100];
   public doughnutChartType:string = 'doughnut';
   
-  appchart1:number[]= [350, 450, 100];
-  appchart2:number[]= [35, 150, 100];
-  appchart3:number[]= [120, 50, 10];
+  appchart1:number[]=[300,500,20,67];
+  appchart2:number=25;
+  appchart3:number=98;
 
   
 
@@ -77,7 +82,7 @@ export class SpecialEventsComponent implements OnInit {
   flag:number=0
   UserName:string=''
 
-
+ timer:any
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -93,11 +98,21 @@ export class SpecialEventsComponent implements OnInit {
         
         this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      
   
-     
+     this.timer = setInterval(()=>{
+      this.randomize()
+     },10000);
   
     
   }
+
+
+  onTimeOut() {
+    this.perform()
+  
+}
+
 perform(){
   console.log('enterd')
   this.dataSource = new MatTableDataSource(this.lineChartData);
@@ -118,6 +133,14 @@ perform(){
       }
     }
     this.lineChartData = _lineChartData;
+
+   
+   for (let i = 0; i < 4 ; i++) {
+    this.appchart1[i]= Math.floor((Math.random() * 1000) + 1);
+    
+    console.log(this.appchart1)
+   }
+
     this.perform()
 
 
@@ -139,6 +162,8 @@ perform(){
     console.log(e);
   }
   
+  ngOnDestroy(){
 
+  }
 }
 
