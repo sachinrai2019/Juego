@@ -62,7 +62,7 @@ def get_all_users():
 @app.route('/login', methods=['POST'])
 def login():
   admin = mongo.db.profile
-  s = admin.find_one({'UserName' : request.json['UserName']})
+  s = admin.find_one({'emailId' : request.json['emailId']})
   print(s)
   if s:
     if s['password'] == request.json['password']:
@@ -71,7 +71,7 @@ def login():
     else:
       output = "invalid password"
     return jsonify(output)
-  output="invalid username/password"
+  output="invalid EmailId/password"
   return jsonify(output)
 
 #####################################################################################################################
@@ -134,7 +134,7 @@ def register():
    
     
     access_token = create_access_token(identity = name)
-    output={'token':'access_token', 'message':'successfully added'}
+    output={'token':access_token, 'message':'successfully added'}
     return jsonify(output)
   return jsonify('emailId already taken')
 
@@ -143,4 +143,4 @@ def register():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',debug=True)
+    app.run(debug=True)

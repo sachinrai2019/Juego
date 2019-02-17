@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http'
 
 @Injectable()
 export class AuthService {
-private url="hhttp://sachinrai.in:5000/"
+private url="http://sachinrai.in:5000/"
   constructor(private http:HttpClient) { }
 
     registeRr(user){
